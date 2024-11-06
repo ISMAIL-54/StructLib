@@ -1,0 +1,4 @@
+/home/i5m4il/Projects/StructLib/build/CMakeFiles/SL_STACK.dir
+/home/i5m4il/Projects/StructLib/build/CMakeFiles/main.dir
+/home/i5m4il/Projects/StructLib/build/CMakeFiles/edit_cache.dir
+/home/i5m4il/Projects/StructLib/build/CMakeFiles/rebuild_cache.dir
