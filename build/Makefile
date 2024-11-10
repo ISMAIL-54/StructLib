@@ -130,6 +130,19 @@ SL_STACK/fast:
 .PHONY : SL_STACK/fast
 
 #=============================================================================
+# Target rules for targets named SL_VECTOR
+
+# Build rule for target.
+SL_VECTOR: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SL_VECTOR
+.PHONY : SL_VECTOR
+
+# fast build rule for target.
+SL_VECTOR/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL_VECTOR.dir/build.make CMakeFiles/SL_VECTOR.dir/build
+.PHONY : SL_VECTOR/fast
+
+#=============================================================================
 # Target rules for targets named main
 
 # Build rule for target.
@@ -142,29 +155,29 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
-src/main.o: src/main.cpp.o
-.PHONY : src/main.o
+tests/main.o: tests/main.cpp.o
+.PHONY : tests/main.o
 
 # target to build an object file
-src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
+tests/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tests/main.cpp.o
+.PHONY : tests/main.cpp.o
 
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
+tests/main.i: tests/main.cpp.i
+.PHONY : tests/main.i
 
 # target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
+tests/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tests/main.cpp.i
+.PHONY : tests/main.cpp.i
 
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
+tests/main.s: tests/main.cpp.s
+.PHONY : tests/main.s
 
 # target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
+tests/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/tests/main.cpp.s
+.PHONY : tests/main.cpp.s
 
 # Help Target
 help:
@@ -175,10 +188,11 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SL_STACK"
+	@echo "... SL_VECTOR"
 	@echo "... main"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
+	@echo "... tests/main.o"
+	@echo "... tests/main.i"
+	@echo "... tests/main.s"
 .PHONY : help
 
 
