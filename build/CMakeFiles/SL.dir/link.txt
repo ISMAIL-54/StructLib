@@ -1,0 +1,2 @@
+/usr/bin/ar qc libSL.a 
+/usr/bin/ranlib libSL.a

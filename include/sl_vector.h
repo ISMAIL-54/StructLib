@@ -2,6 +2,7 @@
 #define SL_VECTOR
 #include <cstdlib>
 #include <iostream>
+#include <optional>
 #include <stdexcept>
 #include <stdlib.h>
 #include <math.h>
@@ -25,10 +26,10 @@ class sl_vector {
         
         sl_vector(){ AllocateMemory(); }
 
-        sl_vector(const std::initializer_list<dataType>& values) {
-            currentSize = values.size();
+        sl_vector(const std::initializer_list<dataType>& li) {
+            currentSize = li.size();
             AllocateMemory();
-            std::copy(values.begin(), values.end(), arr);
+            std::copy(li.begin(), li.end(), arr);
         }
         
         sl_vector(size_t size, dataType value) {
@@ -43,7 +44,7 @@ class sl_vector {
         
         void push_back(dataType element) {
             arr[currentSize++] = element;
-            if (currentSize > allocatedSize)
+            if (currentSize >= allocatedSize)
                 ReallocateMemory();
         }
 
@@ -52,7 +53,7 @@ class sl_vector {
                 std::cerr << "Segmentation fault (core dumped)" << std::endl;
                 exit(EXIT_FAILURE);
             }
-            arr[--currentSize] = arr[currentSize+1];
+            --currentSize;
         }
 
         size_t size() {
@@ -94,6 +95,11 @@ class sl_vector {
             if (index >= currentSize) 
                 throw std::out_of_range("Index Out of Bounds");
             return arr[index];
+        }
+
+        void displayInfo() {
+            std::cout << "Size: " << currentSize << std::endl;
+            std::cout << "Capacity: " << allocatedSize << std::endl;
         }
 };
 

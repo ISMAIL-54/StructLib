@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/main.dir/tests/main.cpp.o -o main  libSL_STACK.a 
+/usr/bin/c++ CMakeFiles/main.dir/tests/main.cpp.o -o main  libSL.a 

@@ -117,30 +117,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named SL_STACK
+# Target rules for targets named SL
 
 # Build rule for target.
-SL_STACK: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SL_STACK
-.PHONY : SL_STACK
+SL: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SL
+.PHONY : SL
 
 # fast build rule for target.
-SL_STACK/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL_STACK.dir/build.make CMakeFiles/SL_STACK.dir/build
-.PHONY : SL_STACK/fast
-
-#=============================================================================
-# Target rules for targets named SL_VECTOR
-
-# Build rule for target.
-SL_VECTOR: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SL_VECTOR
-.PHONY : SL_VECTOR
-
-# fast build rule for target.
-SL_VECTOR/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL_VECTOR.dir/build.make CMakeFiles/SL_VECTOR.dir/build
-.PHONY : SL_VECTOR/fast
+SL/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL.dir/build.make CMakeFiles/SL.dir/build
+.PHONY : SL/fast
 
 #=============================================================================
 # Target rules for targets named main
@@ -187,8 +174,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... SL_STACK"
-	@echo "... SL_VECTOR"
+	@echo "... SL"
 	@echo "... main"
 	@echo "... tests/main.o"
 	@echo "... tests/main.i"

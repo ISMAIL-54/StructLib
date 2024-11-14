@@ -63,8 +63,7 @@ CMAKE_BINARY_DIR = /home/i5m4il/Projects/StructLib/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/SL_STACK.dir/all
-all: CMakeFiles/SL_VECTOR.dir/all
+all: CMakeFiles/SL.dir/all
 all: CMakeFiles/main.dir/all
 .PHONY : all
 
@@ -73,71 +72,44 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/SL_STACK.dir/clean
-clean: CMakeFiles/SL_VECTOR.dir/clean
+clean: CMakeFiles/SL.dir/clean
 clean: CMakeFiles/main.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/SL_STACK.dir
+# Target rules for target CMakeFiles/SL.dir
 
 # All Build rule for target.
-CMakeFiles/SL_STACK.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL_STACK.dir/build.make CMakeFiles/SL_STACK.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL_STACK.dir/build.make CMakeFiles/SL_STACK.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/i5m4il/Projects/StructLib/build/CMakeFiles --progress-num=1 "Built target SL_STACK"
-.PHONY : CMakeFiles/SL_STACK.dir/all
+CMakeFiles/SL.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL.dir/build.make CMakeFiles/SL.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL.dir/build.make CMakeFiles/SL.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/i5m4il/Projects/StructLib/build/CMakeFiles --progress-num=1 "Built target SL"
+.PHONY : CMakeFiles/SL.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/SL_STACK.dir/rule: cmake_check_build_system
+CMakeFiles/SL.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/i5m4il/Projects/StructLib/build/CMakeFiles 1
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SL_STACK.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/i5m4il/Projects/StructLib/build/CMakeFiles 0
-.PHONY : CMakeFiles/SL_STACK.dir/rule
+.PHONY : CMakeFiles/SL.dir/rule
 
 # Convenience name for target.
-SL_STACK: CMakeFiles/SL_STACK.dir/rule
-.PHONY : SL_STACK
+SL: CMakeFiles/SL.dir/rule
+.PHONY : SL
 
 # clean rule for target.
-CMakeFiles/SL_STACK.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL_STACK.dir/build.make CMakeFiles/SL_STACK.dir/clean
-.PHONY : CMakeFiles/SL_STACK.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/SL_VECTOR.dir
-
-# All Build rule for target.
-CMakeFiles/SL_VECTOR.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL_VECTOR.dir/build.make CMakeFiles/SL_VECTOR.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL_VECTOR.dir/build.make CMakeFiles/SL_VECTOR.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/i5m4il/Projects/StructLib/build/CMakeFiles --progress-num=2 "Built target SL_VECTOR"
-.PHONY : CMakeFiles/SL_VECTOR.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/SL_VECTOR.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/i5m4il/Projects/StructLib/build/CMakeFiles 1
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SL_VECTOR.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/i5m4il/Projects/StructLib/build/CMakeFiles 0
-.PHONY : CMakeFiles/SL_VECTOR.dir/rule
-
-# Convenience name for target.
-SL_VECTOR: CMakeFiles/SL_VECTOR.dir/rule
-.PHONY : SL_VECTOR
-
-# clean rule for target.
-CMakeFiles/SL_VECTOR.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL_VECTOR.dir/build.make CMakeFiles/SL_VECTOR.dir/clean
-.PHONY : CMakeFiles/SL_VECTOR.dir/clean
+CMakeFiles/SL.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SL.dir/build.make CMakeFiles/SL.dir/clean
+.PHONY : CMakeFiles/SL.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
-CMakeFiles/main.dir/all: CMakeFiles/SL_STACK.dir/all
+CMakeFiles/main.dir/all: CMakeFiles/SL.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/i5m4il/Projects/StructLib/build/CMakeFiles --progress-num=3,4 "Built target main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/i5m4il/Projects/StructLib/build/CMakeFiles --progress-num=2,3 "Built target main"
 .PHONY : CMakeFiles/main.dir/all
 
 # Build rule for subdir invocation for target.
