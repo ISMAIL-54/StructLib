@@ -5,19 +5,22 @@
 #include "../include/sl_list.h"
 
 int main(){
-    sl_list<int> list {1, 2, 4, 5};
-    std::cout << "Starting from Head: " << std::endl;
-    list.displayListHead();
-    std::cout << "First element: " << list.front() << std::endl;
-    std::cout << "Last element: " << list.back() << std::endl;
-    std::cout << "Poping the first element: " << std::endl;
-    list.pop_front();
-    list.displayListHead();
-    std::cout << "======================" << std::endl;
-    list.push_front(100);
-    list.push_front(200);
-    list.displayListHead();
-    std::cout << "Size: " << list.size() << std::endl;
-    std::cout << "Is the list empty ? " << list.empty() << std::endl;
+    sl_vector<std::string> cars {"BMW", "Audi", "C++"};
+
+    sl_vector<std::string>::iterator iter1 = cars.begin();
+    sl_vector<std::string>::iterator iter2 = cars.begin();
+    std::cout << "iter1 == iter2 (true) : " << (iter1 == iter2) << std::endl;
+    std::cout << "iter1 != iter2 (false) : " << (iter1 != iter2) << std::endl;
+    iter2++;
+    std::cout << "iter1 <= iter2 (true) : " << (iter1 <= iter2) << std::endl;
+    std::cout << "iter1 < iter2 (true) : " << (iter1 < iter2) << std::endl;
+    iter2--;
+    std::cout << "iter1 >= iter2 (true) : " << (iter1 >= iter2) << std::endl;
+    std::cout << "iter1 > iter2 (false) : " << (iter1 > iter2) << std::endl;
+
+    iter1+=1;
+    std::cout << "Should print 'Audi' => " << *iter1 << std::endl;
+    iter1-=1;
+    std::cout << "Should print 'BMW' => " << *iter1 << std::endl;
     return 0;
 }
