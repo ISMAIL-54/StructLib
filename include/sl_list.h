@@ -1,9 +1,90 @@
-#ifndef SL_LIST
+/*#ifndef SL_LIST
 #define SL_LIST
 #include <initializer_list>
 #include <iostream>
 
 // Doubly linked list: Node1 -> Node2 -> Node3
+
+template<typename sl_list>
+class listIterator {
+    public:
+        using valueType = typename sl_list::valueType;
+        using nodeType = typename sl_list::nodeType;
+        using pointerType = nodeType*;
+        using referenceType = nodeType&;
+
+    private:
+        pointerType head;
+        pointerType tail;
+        pointerType node_ptr;
+
+    public:
+        listIterator() {
+            node_ptr = nullptr;
+        }
+
+        listIterator(pointerType ptr) {
+            if (ptr->nextNode == nullptr)
+                tail = ptr;
+            else
+                head = ptr;
+            node_ptr = ptr;
+        }
+        
+        listIterator& operator++() {
+            if (node_ptr->nextNode == nullptr) {
+                tail = node_ptr;
+                node_ptr = head;
+            } else
+                node_ptr = node_ptr->nextNode;     
+            return *this;
+        }
+         
+        listIterator operator++(int) {
+            listIterator iterator = *this;
+            if (node_ptr->nextNode == nullptr) {
+                tail = node_ptr;
+                node_ptr = head;
+            } else
+                node_ptr = node_ptr->nextNode;
+            return iterator; 
+        }
+
+        listIterator& operator--() {
+            if (node_ptr->previousNode == nullptr) {
+                head = node_ptr;
+                node_ptr = tail;
+            } else
+                node_ptr = node_ptr->previousNode;
+            return *this;
+        }
+
+        listIterator operator--(int) {
+           listIterator iterator = *this;
+           if (node_ptr->previousNode == nullptr) {
+               head = node_ptr;
+               node_ptr = tail;
+            } else
+                node_ptr = node_ptr->previousNode;
+            return iterator;
+        }
+
+        valueType operator*() {
+            return node_ptr->data;
+        }
+        
+        pointerType operator->() {
+            return node_ptr;
+        }
+
+        bool operator==(const listIterator& otherIterator) {
+            return node_ptr == otherIterator.node_ptr;
+        }
+
+        bool operator!=(const listIterator& otherIterator) {
+            return node_ptr != otherIterator.node_ptr;
+        }
+};
 
 template<typename dataType>
 struct Node {
@@ -19,14 +100,18 @@ class sl_list {
     size_t nodeCount = 0;
 
     public:
+        using valueType = dataType;
+        using nodeType = Node<dataType>;
+        using iterator = listIterator<sl_list<dataType>>;
+
         sl_list() {
             head = new Node<dataType>;
+            tail = head;
         }
 
         sl_list(size_t size, dataType value) {
             Node<dataType>* ptr;
             Node<dataType>* node;
-            nodeCount = 0;
             do {
                 node = new Node<dataType>;
                 node->data = value;
@@ -70,21 +155,43 @@ class sl_list {
         }
 
         ~sl_list() {
-            free(head);
-            free(tail);
+            Node<dataType>* temp = head->nextNode;
+            while (head != nullptr) {
+                delete(head);
+                head = temp;
+                temp = temp->nextNode;
+            }
+            delete(head);
+            nodeCount = 0;
         }
 
         void push_front(dataType element) {
-            Node<dataType>* node = new Node<dataType>{element};
+            if (nodeCount == 0) {
+                head->data = element;
+                head->previousNode = nullptr;
+                head->nextNode = nullptr;
+                nodeCount++;
+                return;
+            }
+            Node<dataType>* node = new Node<dataType>;
+            node->data = element;
             head->previousNode = node;
             node->nextNode = head;
             head = node;
             head->previousNode = nullptr;
-            nodeCount+=1;
+            nodeCount++;
         }
 
         void push_back(dataType element) {
-            Node<dataType>* node = new Node<dataType>{element};
+            if (nodeCount == 0) {
+                tail->data = element;
+                tail->previousNode = nullptr;
+                tail->nextNode = nullptr;
+                nodeCount++;
+                return;
+            }
+            Node<dataType>* node = new Node<dataType>;
+            node->data = element;
             tail->nextNode = node;
             node->previousNode = tail;
             tail = node;
@@ -127,13 +234,42 @@ class sl_list {
                 return false;
         }
 
+        void clear() {
+            Node<dataType>* ptr = head->nextNode;;
+            for (int i=2; i < nodeCount; i++) {
+                if (ptr->nextNode == nullptr) {
+                    delete(ptr);
+                    ptr = nullptr;
+                    break;
+                }
+                ptr = ptr->nextNode;
+                delete(ptr->previousNode);
+                ptr->previousNode = nullptr;
+            }
+            delete(head);
+            delete(tail);
+            head = nullptr;
+            tail = nullptr;
+            nodeCount = 0;
+        }
+
+        iterator begin() {
+            return iterator(head);
+        }
+
+        iterator end() {
+            return iterator(tail);
+        }
+
         void displayListHead() {
            Node<dataType>* ptr = head;
-           for (int i=1; i <= nodeCount; i++) {
-               std::cout << "Address: " << ptr << " - ";
+           int i=1;
+           while (ptr != nullptr) {
+               std::cout << " Address: " << ptr << " - ";
                std::cout << "Value " << i << ": " << ptr->data << std::endl;
                ptr = ptr->nextNode;
-            }
+               i++;
+           }
         }
 
 
@@ -148,4 +284,4 @@ class sl_list {
 
 };
 
-#endif
+#endif*/
