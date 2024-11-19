@@ -152,4 +152,5 @@ CMakeFiles/main.dir/tests/main.cpp.o: \
  /usr/include/c++/13/optional \
  /usr/include/c++/13/bits/enable_special_members.h \
  /usr/include/c++/13/stdlib.h /usr/include/c++/13/math.h \
- /home/i5m4il/Projects/StructLib/tests/../include/sl_list.h
+ /home/i5m4il/Projects/StructLib/tests/../include/sl_list.h \
+ /home/i5m4il/Projects/StructLib/tests/../include/sl_forward_list.h

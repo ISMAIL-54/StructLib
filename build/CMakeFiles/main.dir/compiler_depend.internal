@@ -3,6 +3,7 @@
 
 CMakeFiles/main.dir/tests/main.cpp.o
  /home/i5m4il/Projects/StructLib/tests/main.cpp
+ /home/i5m4il/Projects/StructLib/include/sl_forward_list.h
  /home/i5m4il/Projects/StructLib/include/sl_list.h
  /home/i5m4il/Projects/StructLib/include/sl_stack.h
  /home/i5m4il/Projects/StructLib/include/sl_vector.h
