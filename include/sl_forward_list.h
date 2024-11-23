@@ -70,15 +70,15 @@ class sl_forward_list {
         using iterator = forwardListIterator<sl_forward_list<dataType>>;
 
         sl_forward_list() {
-            head = new Node<dataType>;
+            head = new nodeType;
             tail = head;
         }
 
         sl_forward_list(const size_t& size, const dataType& value) {
-            Node<dataType>* node;
-            Node<dataType>* ptr;
+            nodeType* node;
+            nodeType* ptr;
             while (nodeCount < size) {
-                node = new Node<dataType>{value, nullptr};
+                node = new nodeType{value, nullptr};
                 nodeCount++;
                 if (nodeCount == 1) {
                     head = node;
@@ -95,10 +95,10 @@ class sl_forward_list {
         sl_forward_list(const std::initializer_list<dataType>& li) {
             nodeCount = li.size();
             typename std::initializer_list<dataType>::iterator iter = li.begin();
-            Node<dataType>* node;
-            Node<dataType>* ptr;
+            nodeType* node;
+            nodeType* ptr;
             while (iter != li.end()) {
-                node = new Node<dataType>{*iter, nullptr};
+                node = new nodeType{*iter, nullptr};
                 if (iter == li.begin()) {
                     head = node;
                     tail = node;
@@ -120,7 +120,7 @@ class sl_forward_list {
                 nodeCount++;
                 return;
             }
-            Node<dataType>* node = new Node<dataType>{element, head};
+            nodeType* node = new nodeType{element, head};
             head = node;
             nodeCount++;
         }
@@ -132,7 +132,7 @@ class sl_forward_list {
                 nodeCount++;
                 return;
             }
-            Node<dataType>* node = new Node<dataType>{element, nullptr};
+            nodeType* node = new nodeType{element, nullptr};
             tail->nextNode = node;
             tail = node;
             nodeCount++;
@@ -144,7 +144,7 @@ class sl_forward_list {
                 nodeCount--;
                 return;
             }
-            Node<dataType>* temp = head;
+            nodeType* temp = head;
             head = head->nextNode;
             delete temp;
             temp = nullptr;
@@ -157,10 +157,10 @@ class sl_forward_list {
                 nodeCount--;
                 return;
             }
-            Node<dataType>* temp = tail;
+            nodeType* temp = tail;
             delete temp;
             temp = nullptr;
-            Node<dataType>* ptr = head;
+            nodeType* ptr = head;
             for (int i=1; i <= nodeCount - 2; i++) {
                 ptr = ptr->nextNode;    
             }
@@ -194,7 +194,7 @@ class sl_forward_list {
                nodeCount = 0;
                return;
             }
-            Node<dataType>* temp = head;
+            nodeType* temp = head;
             while (nodeCount > 0) {
                 head = head->nextNode;
                 delete temp;
@@ -202,16 +202,16 @@ class sl_forward_list {
                 temp = head;
                 nodeCount--;
             }
-            head = new Node<dataType>;
+            head = new nodeType;
             tail = head;
         }
 
         void assign(const size_t& n, const dataType& val) {
             this->clear();
-            Node<dataType>* node;
-            Node<dataType>* ptr;
+            nodeType* node;
+            nodeType* ptr;
             while (nodeCount < n) {
-                node = new Node<dataType>{val, nullptr};
+                node = new nodeType{val, nullptr};
                 nodeCount++;
                 if (nodeCount == 1) {
                     head = node;
@@ -229,10 +229,10 @@ class sl_forward_list {
             this->clear();
             nodeCount = li.size();
             typename std::initializer_list<dataType>::iterator iter = li.begin();
-            Node<dataType>* node;
-            Node<dataType>* ptr;
+            nodeType* node;
+            nodeType* ptr;
             while (iter != li.end()) {
-                node = new Node<dataType>{*iter, nullptr};
+                node = new nodeType{*iter, nullptr};
                 if (iter == li.begin()) {
                     head = node;
                     tail = node;
@@ -249,11 +249,11 @@ class sl_forward_list {
 
         void assign(const iterator& iterBeg, const iterator& iterEnd) {
             this->clear();
-            Node<dataType>* node;
-            Node<dataType>* ptr;
+            nodeType* node;
+            nodeType* ptr;
             iterator iter = iterBeg;
             while (iter != iterEnd) {
-                node = new Node<dataType>{*iter, nullptr}; 
+                node = new nodeType{*iter, nullptr}; 
                 nodeCount++;
                 if (iter == iterBeg) {
                     head = node;
@@ -274,7 +274,7 @@ class sl_forward_list {
                 std::cerr << "Segmentation fault (core dumped)" << std::endl;
                 exit(EXIT_FAILURE);
             }
-            Node<dataType>* node = new Node<dataType>{element, pos->nextNode};
+            nodeType* node = new nodeType{element, pos->nextNode};
             if (pos->nextNode == nullptr)
                 tail = node;
             pos->nextNode = node;
@@ -282,7 +282,7 @@ class sl_forward_list {
         }
 
         void insert_after(const iterator& pos, const size_t& n, const dataType& element) {
-            Node<dataType>* node;
+            nodeType* node;
             size_t cntr = 0;
             iterator iter = pos;
             while (cntr < n) {
@@ -305,9 +305,9 @@ class sl_forward_list {
         void reverse() {
             if (nodeCount <= 1)
                 return;
-            Node<dataType>* node = head->nextNode;
-            Node<dataType>* next;
-            Node<dataType>* previous = head;
+            nodeType* node = head->nextNode;
+            nodeType* next;
+            nodeType* previous = head;
             tail = head;
             tail->nextNode = nullptr;
             for (int i=2; i <= nodeCount; i++) {
@@ -323,12 +323,77 @@ class sl_forward_list {
             head = node;
         }
 
-        void erase_after(const iterator& pos) {
-             
+        void erase_after(iterator& pos) {
+            iterator iter = pos;
+            ++iter;
+            nodeType* temp = pos->nextNode;
+            pos->nextNode = iter->nextNode; 
+            delete temp;
+            temp = nullptr;
+            nodeCount--;
+
+            temp = head;
+            while (temp != nullptr) {
+               if (temp->nextNode == nullptr)
+                   tail = temp;
+               temp = temp->nextNode;
+            }
+        }
+
+        void erase_after(iterator& start, iterator& end) {
+            iterator iter = start;
+            while (iter != end) {
+                if (start->nextNode == nullptr) {
+                    tail = head;
+                    tail->nextNode = nullptr;
+                    break;
+                }
+                nodeType* temp = start->nextNode;
+                start->nextNode = temp->nextNode;
+                delete temp;
+                temp = nullptr;
+                nodeCount--;
+                iter = start;
+            }
+        }
+
+        void unique() {
+           nodeType* node = head;
+           while (node->nextNode != nullptr) {
+                nodeType* temp = node->nextNode;
+                if (node->data == temp->data) {
+                    if (temp->nextNode == nullptr)
+                        tail = node;
+                    node->nextNode = temp->nextNode;
+                    delete temp;
+                    temp = nullptr;
+                    nodeCount--;
+                } else 
+                    node = node->nextNode;
+           }
         }
 
         void remove(dataType element) {
-
+            nodeType* prev = head;
+            nodeType* curr = head;
+            while (curr != nullptr) {
+                nodeType* temp;
+                if (curr->data == element) {
+                    if (curr == head)
+                        head = head->nextNode;
+                    else if (curr == tail)
+                       tail = prev;
+                    temp = curr;
+                    curr = curr->nextNode;
+                    prev->nextNode = curr;
+                    delete temp;
+                    temp = nullptr;
+                    nodeCount--;
+                } else {
+                    prev = curr;
+                    curr = curr->nextNode;
+                }
+            }
         }
 
         iterator begin() {
@@ -337,19 +402,6 @@ class sl_forward_list {
 
         iterator end() {
             return iterator(nullptr);
-        }
-
-        void displayList() {
-            Node<dataType>* node = head;
-            int i=1;
-            while (i <= nodeCount) {
-                std::cout << "Node " << node << " -> value " << node->data << std::endl;
-                node = node->nextNode;
-                i++;
-            }
-            std::cout << "Total size: " << nodeCount << std::endl;
-            std::cout << "Head " << head << " -> value " << head->data << std::endl;
-            std::cout << "Tail " << tail << " -> value " << tail->data << std::endl;
         }
 };
 
