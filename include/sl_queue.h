@@ -1,10 +1,10 @@
-#ifndef SL_STACK 
-#define SL_STACK 
+#ifndef SL_QUEUE 
+#define SL_QUEUE 
 #include <cmath>
 #include <iostream>
 
 template<class dataType>
-class sl_stack { 
+class sl_queue { 
         size_t nbElement;
         size_t capacity;
         dataType* arr;
@@ -17,25 +17,17 @@ class sl_stack {
         }
 
     public:
-        sl_stack() {
+        sl_queue() {
             nbElement = 0;
             capacity = 1;
             AllocateMemory();
         }
 
-        ~sl_stack() {
-            free(arr);
-        }
+        ~sl_queue() {
+            free(arr); 
+        } 
 
-        dataType top() {
-            if (nbElement == 0){
-                std::cerr << "Stack is empty!" << std::endl;
-                exit(EXIT_FAILURE);
-            }
-            return arr[nbElement-1];
-        }
-
-        void push(dataType element) {
+        void push(dataType element) { 
             arr[nbElement++] = element;
             if (nbElement >= capacity) 
                 ReallocateMemory();
@@ -43,10 +35,29 @@ class sl_stack {
 
         void pop() {
             if (nbElement <= 0) {
-                std::cerr << "Error: stack underflow!" << std::endl;
+                std::cerr << "Error: queue underflow!" << std::endl;
                 exit(EXIT_FAILURE);
             }
+            for (int i=1; i < nbElement; i++) {
+                arr[i-1] = arr[i];
+            }
             --nbElement;
+        }
+
+        dataType front() {
+            if (nbElement == 0) {
+                std::cerr << "Queue is empty!" << std::endl;
+                exit(EXIT_FAILURE);
+            }
+            return arr[0];
+        }
+
+        dataType back() {
+            if (nbElement == 0) {
+                std::cerr << "Queue is empty!" << std::endl;
+                exit(EXIT_FAILURE);
+            }
+            return arr[nbElement-1];
         }
 
         bool isEmpty() {
@@ -56,7 +67,7 @@ class sl_stack {
                 return true;
         }
 
-        int size() {
+        size_t size() {
             return nbElement;
         }
 

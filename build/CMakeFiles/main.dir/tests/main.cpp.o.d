@@ -128,7 +128,7 @@ CMakeFiles/main.dir/tests/main.cpp.o: \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc \
- /home/i5m4il/Projects/StructLib/tests/../include/sl_stack.h \
+ /home/i5m4il/Projects/StructLib/tests/../include/sl_queue.h \
  /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
@@ -148,16 +148,4 @@ CMakeFiles/main.dir/tests/main.cpp.o: \
  /usr/include/c++/13/tr1/poly_hermite.tcc \
  /usr/include/c++/13/tr1/poly_laguerre.tcc \
  /usr/include/c++/13/tr1/riemann_zeta.tcc \
- /home/i5m4il/Projects/StructLib/tests/../include/sl_vector.h \
- /usr/include/c++/13/optional \
- /usr/include/c++/13/bits/enable_special_members.h \
- /usr/include/c++/13/stdlib.h /usr/include/c++/13/math.h \
- /home/i5m4il/Projects/StructLib/tests/../include/sl_list.h \
- /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
- /usr/include/c++/13/bits/algorithmfwd.h \
- /usr/include/c++/13/bits/stl_heap.h \
- /usr/include/c++/13/bits/uniform_int_dist.h \
- /usr/include/c++/13/bits/stl_tempbuf.h \
- /usr/include/c++/13/pstl/glue_algorithm_defs.h \
- /usr/include/c++/13/pstl/execution_defs.h \
- /home/i5m4il/Projects/StructLib/tests/../include/sl_forward_list.h
+ /home/i5m4il/Projects/StructLib/tests/../include/sl_stack.h

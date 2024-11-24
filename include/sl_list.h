@@ -4,8 +4,6 @@
 #include <initializer_list>
 #include <iostream>
 
-// Doubly linked list: Node1 -> Node2 -> Node3
-
 template<typename sl_list>
 class listIterator {
     public:
