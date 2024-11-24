@@ -1,0 +1,113 @@
+Library
+    [ ] sl_vector
+        [x] Constructor:
+            [x] default: sl_vector
+            [x] Initializer list constructor: sl_vector
+            [x] fill constructor: sl_vector(size, value)
+        [x] push_back()
+        [x] at()
+        [x] operator[]
+        [x] size()
+        [x] capacity()
+        [x] clear()
+        [x] front()
+        [x] back()
+        [x] empty()
+        [x] pop_back()  (I just decrease the size by 1, I don't actually remove the element. to check later)
+        [x] iterator (Random-access iterator)
+            [x] constructor
+            [x] operator ++ (post-increment)
+            [x] operator ++ (pre-icrement)
+            [x] operator -- (post-decrement)
+            [x] operator -- (pre-increment)
+            [x] operator [] 
+            [x] operator *
+            [x] operator ->
+            [x] operator +
+            [x] operator -
+            [x] operator ==
+            [x] operator !=
+            [x] operator <=
+            [x] operator <
+            [x] operator >=
+            [x] operator >
+            [x] oprator +=
+            [x] operator -=
+            
+    [x] sl_stack
+        [x] default constructor: sl_stack
+        [x] top()
+        [x] push()
+        [x] pop() (to check later)
+        [x] size()
+        [x] isEmpty()
+        [x] isFull()
+        
+    [ ] sl_list (Doubly linked list)
+        [x] constructor:
+            [x] default constructor: sl_list
+            [x] fill constructor: sl_list(size, value)
+            [x] initializer list
+        [x] push_front()
+        [x] push_back()
+        [x] front()
+        [x] back()
+        [x] pop_front()
+        [x] pop_back()
+        [x] reverse()
+        [ ] sort()
+        [ ] unique()
+        [x] empty()
+        [x] size()
+        [x] clear()
+        [x] insert()
+        [x] erase()
+        [x] assign()
+        [ ] remove()
+        [ ] merge()
+        [x] iterator
+            [x] constructor
+            [x] operator ++ (post-increment)
+            [x] operator ++ (pre-icrement)
+            [x] operator -- (post-decrement)
+            [x] operator -- (pre-increment)
+            [x] operator *
+            [x] operator ->
+            [x] operator ==
+            [x] operator !=
+
+    [ ] sl_forward_list (Singly linked list)
+        [x] constructor:
+            [x] default constructor: sl_list
+            [x] fill constructor: sl_list(size, value)
+            [x] initializer list
+        [x] push_front()
+        [x] push_back()
+        [x] front()
+        [x] back()
+        [x] pop_front()
+        [x] pop_back()
+        [x] assign(n, val)
+        [x] assign(initializer_list)
+        [x] assign(iter1, iter2)
+        [x] reverse()
+        [ ] sort()
+        [x] unique()
+        [x] empty()
+        [x] size()
+        [x] clear()
+        [x] insert_after()
+        [x] erase_after
+        [x] remove()
+        [ ] merge()
+        [x] iterator
+            [x] constructor
+            [x] operator ++ (post-increment)
+            [x] operator ++ (pre-icrement)
+            [x] operator *
+            [x] operator ->
+            [x] operator ==
+            [x] operator !=
+
+    [ ] sl_queue
+

@@ -5,13 +5,17 @@
 #include "../include/sl_list.h"
 #include "../include/sl_forward_list.h"
 
+struct Student {
+    std::string name;
+    double score;
+};
+
 int main(){
-    sl_forward_list<int> list {20, 3, 5, 0, 10, 1, -333, 1};
-    sl_forward_list<int>::iterator iter1 = list.begin();
-    sl_forward_list<int>::iterator iter2 = list.end();
-    list.displayList();
-    list.erase_after(iter1, iter2);
-    std::cout << "====================" << std::endl;
-    list.displayList();
+    sl_list<int> numbers1 = {0, 0, 0, 20, 0, 0, 300};
+    sl_list<int> numbers2;
+    numbers1.displayListHead();
+    std::cout << "-----------------" << std::endl;
+    numbers1.unique();
+    numbers1.displayListHead();
     return 0;
 }

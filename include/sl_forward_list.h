@@ -60,9 +60,9 @@ struct Node {
 
 template<typename dataType>
 class sl_forward_list {
-    Node<dataType>* head = nullptr;
-    Node<dataType>* tail = nullptr;
-    size_t nodeCount = 0;
+    Node<dataType>* head;
+    Node<dataType>* tail;
+    size_t nodeCount;
 
     public:
         using valueType = dataType;
@@ -70,13 +70,15 @@ class sl_forward_list {
         using iterator = forwardListIterator<sl_forward_list<dataType>>;
 
         sl_forward_list() {
-            head = new nodeType;
-            tail = head;
+            head = nullptr;
+            tail = nullptr;
+            nodeCount = 0;
         }
 
         sl_forward_list(const size_t& size, const dataType& value) {
             nodeType* node;
             nodeType* ptr;
+            nodeCount = 0;
             while (nodeCount < size) {
                 node = new nodeType{value, nullptr};
                 nodeCount++;
@@ -115,8 +117,8 @@ class sl_forward_list {
 
         void push_front(dataType element) {
             if (nodeCount == 0) {
-                head->data = element;
-                head->nextNode = nullptr;
+                head = new nodeType{element, nullptr};
+                tail = head;
                 nodeCount++;
                 return;
             }
@@ -127,8 +129,8 @@ class sl_forward_list {
 
         void push_back(dataType element) {
             if (nodeCount == 0) {
-                head->data = element;
-                head->nextNode = nullptr;
+                head = new nodeType{element, nullptr};
+                tail = head;
                 nodeCount++;
                 return;
             }
@@ -141,6 +143,7 @@ class sl_forward_list {
         void pop_front() {
             if (nodeCount == 1) {
                 delete head;
+                head = nullptr;
                 nodeCount--;
                 return;
             }
@@ -154,6 +157,7 @@ class sl_forward_list {
         void pop_back() {
             if (nodeCount == 1) {
                 delete head;
+                head = nullptr;
                 nodeCount--;
                 return;
             }
@@ -189,21 +193,16 @@ class sl_forward_list {
         }
 
         void clear() {
-            if (nodeCount <= 1) {
-               delete head;
-               nodeCount = 0;
-               return;
-            }
-            nodeType* temp = head;
-            while (nodeCount > 0) {
-                head = head->nextNode;
-                delete temp;
-                temp = nullptr;
-                temp = head;
+            nodeCount = 0;
+            nodeType* node = head;
+            while (node != nullptr) {
+                nodeType* temp = node->nextNode; 
+                delete node;
+                node = temp;
                 nodeCount--;
             }
-            head = new nodeType;
-            tail = head;
+            head = nullptr;
+            tail = nullptr;
         }
 
         void assign(const size_t& n, const dataType& val) {
