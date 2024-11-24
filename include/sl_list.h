@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <initializer_list>
 #include <iostream>
-#include <optional>
 
 // Doubly linked list: Node1 -> Node2 -> Node3
 
@@ -424,32 +423,6 @@ class sl_list {
 
         iterator end() {
             return iterator(nullptr, head, tail);
-        }
-
-        void displayListHead() {
-           nodeType* ptr = head;
-           int i=1;
-           while (ptr != nullptr) {
-               std::cout << "Address: " << ptr << " - ";
-               std::cout << "value: " << ptr->data << std::endl;
-               ptr = ptr->nextNode;
-               i++;
-           }
-           std::cout << "Size: " << size() << std::endl;
-           std::cout << "Head: " << head << " - value: " << head->data << std::endl;
-           std::cout << "Tail: " << tail << " - value: " << tail->data << std::endl;
-        }
-
-        void displayListTail() {
-            nodeType* ptr = tail;
-            for (int i=nodeCount; i > 0; i--) {
-                std::cout << "Address: " << ptr << " - ";
-                std::cout << " -> value: " << ptr->data << std::endl;
-                ptr = ptr->previousNode;
-            }
-           std::cout << "Size: " << size() << std::endl;
-           std::cout << "Head: " << head << " - value: " << head->data << std::endl;
-           std::cout << "Tail: " << tail << " - value: " << tail->data << std::endl;
         }
 
 };

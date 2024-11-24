@@ -2,7 +2,6 @@
 #define SL_VECTOR
 #include <cstdlib>
 #include <iostream>
-#include <optional>
 #include <stdexcept>
 #include <stdlib.h>
 #include <math.h>
