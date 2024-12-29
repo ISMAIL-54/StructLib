@@ -18,6 +18,10 @@ class vectorIterator {
         pointerType arr_ptr;
 
     public:
+        vectorIterator() {
+            arr_ptr = nullptr;
+        }
+        
         vectorIterator(pointerType ptr): arr_ptr(ptr) {}
         
         vectorIterator& operator++() {

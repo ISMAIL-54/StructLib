@@ -1,29 +1,36 @@
 #include <iostream>
 #include <string>
-#include "../include/sl_queue.h"
-#include "../include/sl_stack.h"
+#include "sl_hashtable.h"
 
 int main(){
-    sl_stack<int> numbers;
-    numbers.push(20);
-    numbers.displayData();
-    std::cout << "---------------" << std::endl;
-    numbers.push(10);
-    numbers.displayData();
-    std::cout << "---------------" << std::endl;
-    numbers.push(30);
-    numbers.displayData();
-    std::cout << "---------------" << std::endl;
-    numbers.pop();
-    numbers.displayData();
-    std::cout << "---------------" << std::endl;
-    numbers.pop();
-    numbers.displayData();
-    std::cout << "---------------" << std::endl;
-    numbers.pop();
-    numbers.displayData();
-    std::cout << "---------------" << std::endl;
+    sl_hashtable<std::string, int> numbers = {
+        {"One", 1},
+        {"Two", 2},
+        {"Three", 3},
+        {"Four", 4},
+        {"23", 23},
+        {"10", 10},
+        {"Blah", 100},
+        {"Hundred", 100},
+        {"Thousand", 1000},
+        {"Seven", 7},
+        {"dsf", 234},
+        {"Other", 100},
+    };
 
-    std::cout << numbers.top() << std::endl;
+    std::cout << "========================" << std::endl;
+    numbers.displayHashTable();
+    std::cout << "Size: " << numbers.getSize() << std::endl;
+    std::cout << "Other exists ? " << numbers.count("Other") << std::endl;
     return 0;
 }
+
+/*  
+ *              1
+ *          4    42
+ *      12   2 
+ *
+ *
+ *     [1, 4, 42,   
+ * */
+

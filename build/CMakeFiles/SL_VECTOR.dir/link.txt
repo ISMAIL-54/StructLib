@@ -1,2 +1,0 @@
-/usr/bin/ar qc libSL_VECTOR.a 
-/usr/bin/ranlib libSL_VECTOR.a

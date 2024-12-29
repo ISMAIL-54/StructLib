@@ -1,6 +1,6 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.30)
 
-project(StructLib VERSION 1.0)
+project(StructLib)
 
 include_directories(include)
 
