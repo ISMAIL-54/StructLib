@@ -34,7 +34,7 @@ TEST_CASE("Forward list basic operations", "[basic]") {
     REQUIRE(li.empty());
 }
 
-/*TEST_CASE("Forward list string operations", "[string]") {
+TEST_CASE("Forward list string operations", "[string]") {
     sl_forward_list<std::string> li;
     sl_forward_list<std::string>::iterator it = li.begin();
 
@@ -55,7 +55,7 @@ TEST_CASE("Forward list basic operations", "[basic]") {
 
     REQUIRE(li.size() == 1);
     REQUIRE(li.empty() == false);
-}*/
+}
 
 TEST_CASE("Forward list iterators", "[iterators]") {
     sl_forward_list<int> numbers = {1, 2, 3, 4};

@@ -30,7 +30,7 @@ TEST_CASE("Queue basic operations", "[basic]") {
     REQUIRE(Q.isEmpty() == true);
 }
 
-/*TEST_CASE("Queue string operations", "[string]") {
+TEST_CASE("Queue string operations", "[string]") {
     sl_queue<std::string> Q;
 
     Q.push("Orange");
@@ -49,4 +49,4 @@ TEST_CASE("Queue basic operations", "[basic]") {
 
     REQUIRE(Q.size() == 1);
     REQUIRE(Q.isEmpty() == false);
-}*/
+}

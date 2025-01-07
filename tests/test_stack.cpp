@@ -30,7 +30,7 @@ TEST_CASE("Stack basic operations", "[basic]") {
     REQUIRE(stack_num.isEmpty() == true);
 }
 
-/*TEST_CASE("Stack string operations", "[string]") {
+TEST_CASE("Stack string operations", "[string]") {
     sl_stack<std::string> stack_str;
 
     stack_str.push("Hello");
@@ -48,4 +48,4 @@ TEST_CASE("Stack basic operations", "[basic]") {
 
     REQUIRE(stack_str.size() == 1);
     REQUIRE(stack_str.isEmpty() == false);
-}*/
+}

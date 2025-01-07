@@ -42,7 +42,7 @@ TEST_CASE("Hashtable basic operations", "[basic]") {
     REQUIRE(table.getSize() == 0);
 }
 
-/*TEST_CASE("Hashtable string operations", "[string]") {
+TEST_CASE("Hashtable string operations", "[string]") {
     sl_hashtable<int, double> table = {{1, "ismai"}, {2, "khalid"}, {3, "abdarrahmane"}};
 
     CHECK_THAT(table[2], Catch::Matchers::Equals("Khalid"));
@@ -54,5 +54,5 @@ TEST_CASE("Hashtable basic operations", "[basic]") {
 
     table.clear();
     REQUIRE(table.empty() == true);
-}*/
+}
 

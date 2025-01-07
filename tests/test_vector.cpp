@@ -40,7 +40,7 @@ TEST_CASE("Vector basic operations", "[basic]") {
     REQUIRE(vec.empty());
 }
 
-/*TEST_CASE("Vector string operations", "[string]") {
+TEST_CASE("Vector string operations", "[string]") {
     sl_vector<std::string> vec;
 
     vec.push_back("Hello");
@@ -58,7 +58,7 @@ TEST_CASE("Vector basic operations", "[basic]") {
 
     REQUIRE(vec.size() == 1);
     REQUIRE(vec.empty() == false);
-}*/
+}
 
 TEST_CASE("Vector iterators", "[iterators]") {
     sl_vector<int> numbers = {1, 2, 3, 4};

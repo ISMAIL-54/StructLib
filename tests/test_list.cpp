@@ -34,7 +34,7 @@ TEST_CASE("List basic operations", "[basic]") {
     REQUIRE(li.empty());
 }
 
-/*TEST_CASE("List string operations", "[string]") {
+TEST_CASE("List string operations", "[string]") {
     sl_list<std::string> li;
     sl_list<std::string>::iterator it = li.begin();
 
@@ -55,7 +55,7 @@ TEST_CASE("List basic operations", "[basic]") {
 
     REQUIRE(li.size() == 1);
     REQUIRE(li.empty() == false);
-}*/
+}
 
 TEST_CASE("List iterators", "[iterators]") {
     sl_list<int> numbers = {1, 2, 3, 4};
