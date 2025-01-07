@@ -3,7 +3,7 @@ This repository contains an efficient and easy-to-use C++ library for implementi
 
 # Features
  - [x] Vector
- - [ ] Linked list
+ - [x] Linked list  
         - [x] Doubly linked list (std::list in cpp)
         - [x] Singly linked list (std::forward_list in cpp)
  - [x] Stack
