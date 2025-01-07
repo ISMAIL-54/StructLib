@@ -32,6 +32,10 @@ class sl_hashtable {
             allocateMemory();   
         }
 
+        ~sl_hashtable() {
+            free(hashtable);
+        }
+
         sl_hashtable(const std::initializer_list<std::pair<keyType, valueType>>& li) {
             allocateMemory();
             typename std::initializer_list<std::pair<keyType, valueType>>::iterator iter = li.begin();

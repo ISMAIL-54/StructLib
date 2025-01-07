@@ -1,3 +1,5 @@
+#ifndef SL_BINARY_TREE
+#define SL_BINARY_TREE
 #include <functional>
 #include <initializer_list>
 #include <iostream>
@@ -304,72 +306,4 @@ class sl_binary_tree {
             std::cout << std::endl;
         }
 };
-
-        /*
-        int getNodeHeight(dataType val) {
-            int height = -1;
-            getNodeHeightFunc(root, val, height);
-
-            return height;
-        }
-
-
-        int getNodeDepth(dataType val) {
-            return getNodeDepthFunc(root, val);
-        }
-
-        bool isLeaf(dataType val) {
-            std::queue<nodeType*> Q;
-            nodeType* curr;
-            if (root == nullptr)
-                return false;
-            Q.push(root);
-            while (!Q.empty()) {
-                curr = Q.front();
-                Q.pop();
-
-                if (curr->data == val) {
-                    if (curr->left == nullptr && curr->right == nullptr)
-                    return true;
-                }
-
-                if (curr->left)
-                    Q.push(curr->left);
-
-                if (curr->right)
-                    Q.push(curr->right);
-            }
-            return false;
-        }
-        */
-    /*
-    int getNodeDepthFunc(nodeType* root, dataType val) {
-        if (root == nullptr)
-            return -1;
-
-        int depth = -1;
-
-        if ((root->data == val)
-                || (depth = getNodeDepthFunc(root->left, val)) >= 0 
-                || (depth = getNodeDepthFunc(root->right, val)) >= 0)
-            return depth + 1;
-
-        return depth;
-    }
-    
-
-    int getNodeHeightFunc(nodeType* root, dataType val, int& height) {
-        if (root == nullptr)
-            return -1;
-
-        int leftHeight = getNodeHeightFunc(root->left, val, height);
-        int rightHeight = getNodeHeightFunc(root->right, val, height);
-
-        int ans = ((leftHeight > rightHeight) ? leftHeight : rightHeight) + 1;
-
-        if (root->data == val)
-            height = ans;
-
-        return ans;
-    }
-    */
+#endif

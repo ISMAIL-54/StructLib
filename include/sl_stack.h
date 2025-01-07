@@ -50,16 +50,12 @@ class sl_stack {
         }
 
         bool isEmpty() {
-            if (nbElement > 0)
-                return false;
-            else 
-                return true;
+            return (nbElement == 0) ? true : false;
         }
 
         int size() {
             return nbElement;
         }
-
 };
 
 #endif

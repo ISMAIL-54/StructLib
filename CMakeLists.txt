@@ -1,15 +1,24 @@
-cmake_minimum_required(VERSION 3.30)
+cmake_minimum_required(VERSION 3.10) 
 
 project(StructLib)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+include(FetchContent)
+FetchContent_Declare(
+    Catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    GIT_TAG v3.4.0
+)
+FetchContent_MakeAvailable(Catch2)
+
 include_directories(include)
 
-add_library(SL STATIC include)
+add_library(${PROJECT_NAME} include)
 
-set_target_properties(SL PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(${PROJECT_NAME} PROPERTIES LINKER_LANGUAGE CXX)
 
-add_executable(main tests/main.cpp)
+enable_testing()
 
-target_link_libraries(main PRIVATE SL)
-
-
+add_subdirectory(tests)
