@@ -1,5 +1,5 @@
 # Data Structures Library in C++
-This repository contains an efficient and easy-to-use C++ library for implementing and working with fundamental data structures.
+A simple library that efficiently implements fundamental data structures in C++.  
 
 # Features
  - [x] Vector
